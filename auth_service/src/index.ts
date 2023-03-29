@@ -7,14 +7,6 @@ server.use(cors())
 
 const users: { [key: string  | number ]: any } = {}
 
-server.get('/api', (req: Request, res: Response) => {
-  res.send(users)
-})
-
-server.get('/api/:id', (req: Request, res: Response) => {
-  res.send(users[req.params.id])
-})
-
 server.post('/api', (req: Request, res: Response) => {
   const id = Math.ceil((Math.random() * 10000 ))
   users[id] = {
