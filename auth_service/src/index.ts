@@ -2,6 +2,8 @@ import express, { Request, Response, json } from 'express'
 import cors from 'cors'
 const server = express();
 
+const PORT = 8080
+
 server.use(json())
 server.use(cors())
 
@@ -31,6 +33,6 @@ server.delete('/api/:id', (req: Request, res: Response) => {
   res.send()
 })
 
-server.listen(80, () => {
-  console.log('App is up and running')
+server.listen(PORT, () => {
+  console.log('App is up and running', PORT)
 })
