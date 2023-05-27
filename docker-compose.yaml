@@ -1,0 +1,21 @@
+version: '3'
+services:
+  auth-service:
+    container_name: auth-service
+    image: angelgoez/clase-304-api
+  db:
+    container_name: db
+    image: mongo:4.2.9
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: clase304
+      MONGO_INITDB_ROOT_PASSWORD: clase304
+    volumes:
+      ./volumes/data/db:/data/db
+    ports:
+      - 27017:27017
+  ldb:
+    container_name: ldb
+    image: custom-ldb
+    ports:
+      - 80:80
+  
