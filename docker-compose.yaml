@@ -10,7 +10,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: clase304
       MONGO_INITDB_ROOT_PASSWORD: clase304
     volumes:
-      ./volumes/data/db:/data/db
+      - ./volumes/data/db:/data/db
     ports:
       - 27017:27017
   ldb:
