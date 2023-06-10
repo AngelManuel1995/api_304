@@ -12,17 +12,16 @@ services:
       - ./volumes/db:/data/db 
   ldb:
     image: nginx
+    build: custom-ldb
+    depends_on:
+      - auth-service
     ports:
       - 9090:80 
     container_name: ldb    
-  auth:
-    container_name: auth
+  auth-service:
+    container_name: auth-service
     build:
       context: auth_service
       dockerfile: Dockerfile
     ports:
-      - 9091:80
-    
-
-
-
+      - 8080:8080

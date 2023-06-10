@@ -26,6 +26,6 @@ server.get('/api/:id', (req: Request, res: Response) => {
   res.send(users[req.params.id])
 })
 
-server.listen(80, () => {
-  console.log('App is up and running', 80)
+server.listen(8080, () => {
+  console.log('App is up and running', 8080)
 })
