@@ -1,0 +1,28 @@
+version: "3"
+services:
+  database:
+    image: mongo:4.2.9
+    ports:
+      - 27018:27017
+    container_name: database  
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: book
+      MONGO_INITDB_ROOT_PASSWORD: book123
+    volumes:
+      - ./volumes/db:/data/db 
+  ldb:
+    image: nginx
+    ports:
+      - 9090:80 
+    container_name: ldb    
+  auth:
+    container_name: auth
+    build:
+      context: auth_service
+      dockerfile: Dockerfile
+    ports:
+      - 9091:80
+    
+
+
+
